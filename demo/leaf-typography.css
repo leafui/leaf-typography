@@ -1,0 +1,158 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialised;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+table {
+  font-size: 1rem;
+}
+
+td,
+th {
+  font-size: inherit;
+  line-height: 1.5rem;
+}
+
+.lf-text__block {
+  max-width: 45rem;
+}
+
+h6 {
+  margin-top: 1.25em;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.25em;
+}
+
+.lf-text__block--9 {
+  margin-top: 1.25em;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.25em;
+}
+
+h5 {
+  margin-top: 1.0417em;
+  margin-bottom: 0;
+  font-size: 1.44rem;
+  line-height: 1.0417em;
+}
+
+.lf-text__block--8 {
+  margin-top: 1.0417em;
+  margin-bottom: 0;
+  font-size: 1.44rem;
+  line-height: 1.0417em;
+}
+
+h4 {
+  margin-top: 0.8681em;
+  margin-bottom: 0;
+  font-size: 1.728rem;
+  line-height: 1.7362em;
+}
+
+.lf-text__block--7 {
+  margin-top: 0.8681em;
+  margin-bottom: 0;
+  font-size: 1.728rem;
+  line-height: 1.7362em;
+}
+
+h3 {
+  margin-top: 0.7234em;
+  margin-bottom: 0;
+  font-size: 2.0736rem;
+  line-height: 1.4468em;
+}
+
+.lf-text__block--6 {
+  margin-top: 0.7234em;
+  margin-bottom: 0;
+  font-size: 2.0736rem;
+  line-height: 1.4468em;
+}
+
+h2 {
+  margin-top: 0.6028em;
+  margin-bottom: 0;
+  font-size: 2.4884rem;
+  line-height: 1.2056em;
+}
+
+.lf-text__block--5 {
+  margin-top: 0.6028em;
+  margin-bottom: 0;
+  font-size: 2.4884rem;
+  line-height: 1.2056em;
+}
+
+h1 {
+  margin-top: 0.5024em;
+  margin-bottom: 0;
+  font-size: 2.986rem;
+  line-height: 1.0047em;
+}
+
+.lf-text__block--4 {
+  margin-top: 0.5024em;
+  margin-bottom: 0;
+  font-size: 2.986rem;
+  line-height: 1.0047em;
+}
+
+.lf-text__block--3 {
+  margin-top: 0.4187em;
+  margin-bottom: 0;
+  font-size: 3.5832rem;
+  line-height: 1.2559em;
+}
+
+.lf-text__block--2 {
+  margin-top: 0.3489em;
+  margin-bottom: 0;
+  font-size: 4.2999rem;
+  line-height: 1.0466em;
+}
+
+.lf-text__block--1 {
+  margin-top: 0.2908em;
+  margin-bottom: 0;
+  font-size: 5.1598rem;
+  line-height: 1.1629em;
+}
+
+.lf-text--light {
+  color: #fff;
+}
+
+.lf-type--condensed {
+  letter-spacing: -5px;
+}
+
+.lf-type--light {
+  font-weight: 300;
+}
+
+.lf-type--bold {
+  font-weight: bold;
+}
+
+.lf-type--italic {
+  font-style: italic;
+}
+
+/*# sourceMappingURL=leaf-typography.css.map */

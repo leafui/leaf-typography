@@ -11,3 +11,4 @@ TODO: Add leaf-typography info.
 
 [Build]: https://img.shields.io/circleci/project/leafui/leaf-typography/master.svg
 [SemVer]: https://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
+[License]: https://img.shields.io/github/license/leafui/leaf-grid.svg

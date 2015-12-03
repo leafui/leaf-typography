@@ -1,0 +1,170 @@
+////
+/// leaf-typography
+/// Boilerplate web typography.
+/// MIT License
+/// @group leaf-typography
+/// @author Matheus R. Kautzmann <matheus@fluidrobot.com>
+////
+
+/// Power function
+/// @param {Number} $x - The base to do the power
+/// @param {Number} $n - The exponent to do the power
+/// @return {Number}
+/// @author Hugo Giraudel <https://github.com/HugoGiraudel>
+/// @since 0.1.0
+/// @link https://css-tricks.com/snippets/sass/fix-number-n-digits/
+@function pow($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  }
+  @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+
+  @return $ret;
+}
+
+
+/// Return fixed number precision ceiling by default
+/// @param {Number} $float - Number to format
+/// @param {Number} $digits [2] - Number of digits to leave
+/// @return {Number}
+/// @author Matheus R. Kautzmann
+/// @author Hugo Giraudel
+/// @since 0.1.0
+/// @link https://css-tricks.com/snippets/sass/fix-number-n-digits/
+@function to-fixed($float, $digits: 2) {
+  $pow: pow(10, $digits);
+  @return ceil($float * $pow) / $pow;
+}
+
+/// The precision of the font values
+/// @access public
+/// @type Number
+/// @since 0.1.0
+$precision: 4;
+
+/// The number of extra large headings (larger than h1) you want to generate
+/// @access public
+/// @type Number
+/// @since 0.1.0
+$number-of-extra-headings: 3;
+
+/// The maximum line length you want the text block to be in character count
+/// @access public
+/// @type Character count
+/// @since 0.1.0
+$max-line-length: 45;
+
+/// The default base font size for your page/app. 1rem is usually 16px.
+/// @access public
+/// @type REM units
+/// @since 0.1.0
+$base-size: 1rem;
+
+/// The ratio your font-size grows within headings and larger blocks.
+/// @access public
+/// @type Number
+/// @since 0.1.0
+$ratio: 1.2;
+
+/// The default base line height for your page/app
+/// @access public
+/// @type REM units
+/// @since 0.1.0
+$line-height: 1.5rem;
+
+/// The default color for text
+/// @access public
+/// @type Color
+/// @since 0.1.0
+$dark-text: #222;
+
+/// The default color for text in dark backgrounds
+/// @access public
+/// @type Color
+/// @since 0.1.0
+$light-text: #fff;
+
+// Smooth typography rendering
+html { font-size: 100%; }
+body {
+  font-size: $base-size;
+  line-height: $line-height;
+  color: $dark-text;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialised;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin-top: $line-height;
+  margin-bottom: 0;
+}
+
+table { font-size: $base-size; }
+td,
+th {
+  font-size: inherit;
+  line-height: $line-height;
+}
+
+// Optimal reading text block
+.lf-text__block { max-width: $base-size * $max-line-length; }
+
+// Genrate the 6 default headings + the number of extra headings needed
+$total-number-of-headings: 6 + $number-of-extra-headings;
+@for $i from 1 through $total-number-of-headings {
+
+  // Calculates font-size based on the ratio and converts to rem
+  $font-size: to-fixed(pow($ratio, $i), $precision) * 1rem;
+  $number-of-lines: ceil($font-size/$line-height) * $line-height;
+
+  // Using ems to get values related to the current size
+  $heading-height: to-fixed(($number-of-lines/$font-size), $precision) + em;
+  $margin: to-fixed(($line-height/$font-size), $precision) + em;
+
+  // Generating the default headings
+  @if $i < 7 {
+    h#{7 - $i} {
+      margin-top: $margin;
+      margin-bottom: 0;
+      font-size: $font-size;
+      line-height: $heading-height;
+    }
+  }
+
+  // Generate custom text blocks with various sizes
+  .lf-text__block--#{($total-number-of-headings + 1) - $i} {
+    margin-top: $margin;
+    margin-bottom: 0;
+    font-size: $font-size;
+    line-height: $heading-height;
+  }
+}
+
+
+// Text modifiers
+
+// Light text for dark background
+.lf-text--light { color: $light-text; }
+
+// Typeface modifiers
+
+// Condense the font on the text block by 5px
+.lf-type--condensed { letter-spacing: -5px; }
+
+// Use light font variant, not always available
+.lf-type--light { font-weight: 300; }
+
+// Make text block bold
+.lf-type--bold { font-weight: bold; }
+
+// Make text block italic
+.lf-type--italic { font-style: italic; }

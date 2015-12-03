@@ -7,7 +7,7 @@ describe('leaf-typography', ->
       headings = document.querySelectorAll('h1')
     )
 
-    it('should keep a uniform vertical rythm respecting line spacing', ->
+    it('should keep a uniform vertical rhythm respecting line spacing', ->
       lineHeight = headings[0].getBoundingClientRect().top
       firstHeadingRect = headings[1].getBoundingClientRect()
       secondHeadingRect = headings[2].getBoundingClientRect()

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>leaf-typography Browser Tests</title>
+  <link href="../bower_components/mocha/mocha.css" rel="stylesheet">
+  <link href="leaf-typography.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="lf-text__heading1 lf-type--condensed">Extra H1</h1>
+    <h1 class="lf-text__heading2">Extra H2</h1>
+    <h1 class="lf-text__heading3">Extra H3</h1>
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+    <h4>H4</h4>
+    <h5>H5</h5>
+    <h6>H6</h6>
+  </header>
+  <section class="lf-text--block" style="background: #333;">
+    <div class="lf-text--light">
+      <p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Nullam ligula justo, interdum at tincidunt vel, hendrerit in erat. Integer vel velit consequat, tempus orci quis, auctor eros. Nunc eget commodo sapien. Ut ultrices vitae lorem in commodo. Proin aliquam tortor eget arcu molestie sollicitudin. Vestibulum viverra dui nunc, sit amet semper metus vehicula vitae. Quisque vulputate sit amet justo vel placerat. Fusce in libero elementum, scelerisque ipsum vitae, feugiat lacus.</p>
+      <p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Nullam ligula justo, interdum at tincidunt vel, hendrerit in erat. Integer vel velit consequat, tempus orci quis, auctor eros. Nunc eget commodo sapien. Ut ultrices vitae lorem in commodo. Proin aliquam tortor eget arcu molestie sollicitudin. Vestibulum viverra dui nunc, sit amet semper metus vehicula vitae. Quisque vulputate sit amet justo vel placerat. Fusce in libero elementum, scelerisque ipsum vitae, feugiat lacus.</p>
+    </div>
+  </section>
+  <section class="lf-text--block">
+    <p class="lf-type--italic"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Nullam ligula justo, interdum at tincidunt vel, hendrerit in erat. Integer vel velit consequat, tempus orci quis, auctor eros. Nunc eget commodo sapien. Ut ultrices vitae lorem in commodo. Proin aliquam tortor eget arcu molestie sollicitudin. Vestibulum viverra dui nunc, sit amet semper metus vehicula vitae. Quisque vulputate sit amet justo vel placerat. Fusce in libero elementum, scelerisque ipsum vitae, feugiat lacus.</p>
+    <p class="lf-type--bold"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Nullam ligula justo, interdum at tincidunt vel, hendrerit in erat. Integer vel velit consequat, tempus orci quis, auctor eros. Nunc eget commodo sapien. Ut ultrices vitae lorem in commodo. Proin aliquam tortor eget arcu molestie sollicitudin. Vestibulum viverra dui nunc, sit amet semper metus vehicula vitae. Quisque vulputate sit amet justo vel placerat. Fusce in libero elementum, scelerisque ipsum vitae, feugiat lacus.</p>
+  </section>
+  <div id="mocha"></div>
+  <script src="../bower_components/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="../bower_components/chai/chai.js"></script>
+  <script src="testBundle.js"></script>
+  <script>
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      onload = function(){
+        var runner = mocha.run();
+
+        var failedTests = [];
+        runner.on('end', function(){
+          window.mochaResults = runner.stats;
+          window.mochaResults.reports = failedTests;
+        });
+
+        runner.on('fail', logFailure);
+
+        function logFailure(test, err){
+
+          var flattenTitles = function(test){
+            var titles = [];
+            while (test.parent.title){
+              titles.push(test.parent.title);
+              test = test.parent;
+            }
+            return titles.reverse();
+          };
+
+          failedTests.push({name: test.title, result: false, message: err.message, stack: err.stack, titles: flattenTitles(test) });
+        };
+      };
+    }
+  </script>
+</body>
+</html>

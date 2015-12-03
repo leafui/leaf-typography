@@ -12,7 +12,8 @@ describe('leaf-typography', ->
       firstHeadingRect = headings[1].getBoundingClientRect()
       secondHeadingRect = headings[2].getBoundingClientRect()
       distance = secondHeadingRect.top - firstHeadingRect.height
-      expect(distance - lineHeight).to.eql(firstHeadingRect.top)
+      expect(Math.round(distance - lineHeight))
+      .to.eql(Math.round(firstHeadingRect.top))
     )
   )
 )

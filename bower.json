@@ -4,7 +4,7 @@
   "authors": [
     "Matheus Kautzmann <matheus@fluidrobot.com>"
   ],
-  "description": "Boilerplates web typography based on the Roboto font",
+  "description": "Basic and portable typography base CSS",
   "main": [
     "dist/leaf-typography.min.css"
   ],

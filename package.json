@@ -1,7 +1,7 @@
 {
   "name": "leaf-typography",
   "version": "0.1.0",
-  "description": "Boilerplates web typography based on the Roboto font",
+  "description": "Basic and portable typography base CSS",
   "keywords": "typography, leaf, ui",
   "author": "Matheus R. Kautzmann",
   "publish": false,

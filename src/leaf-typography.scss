@@ -95,13 +95,16 @@ $light-text: #fff;
 // Smooth typography rendering
 html { font-size: 100%; }
 body {
-  font-size: $base-size;
   line-height: $line-height;
   color: $dark-text;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialised;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// Workaround Android 4.4  31-34 Chromium WebView bug
+// @see https://code.google.com/p/chromium/issues/detail?id=319623
+*:not(html) { font-size: $base-size; }
 
 p {
   margin-top: $line-height;

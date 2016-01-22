@@ -137,8 +137,16 @@ module.exports = (grunt) ->
           linebreak: true
         },
         files: {
-          src: ['dist/*.css']
+          src: ['dist/*.css', 'dist/*.scss']
         }
+      }
+    }
+
+    # Export raw SCSS file
+    copy: {
+      main: {
+        src: 'src/leaf-typography.scss'
+        dest: 'dist/_leaf-typography.scss'
       }
     }
 
@@ -233,6 +241,7 @@ module.exports = (grunt) ->
     'sass:dist'
     'postcss:distProd'
     'docs'
+    'copy'
     'usebanner'
   ])
   if process.env.CI
